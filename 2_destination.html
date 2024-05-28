@@ -17,16 +17,20 @@
         async function getDestinations() {
             const response = await axios.get(`${url}/destinations`)
             myDestinations = response.data
+            displayDestinations()
         }
-        getDestinations()
+        
+        function displayDestinations() {
+            document.querySelector("body").innerHTML = `<div id="main"><div>`
+            let myDiv = document.getElementById("main")
+            let allThings = ""
+            for (let dest of myDestinations) {
+                allThings += dest["name"] + " " + dest["score"] + "<br>"
+            }
+            myDiv.innerHTML = allThings
+        }
 
-        document.querySelector("body").innerHTML = `<div id="main"><div>`
-        let myDiv = document.getElementById("main")
-        let allThings
-        for (dest in myDestinations) {
-            allThings += dest["name"] + dest["score"] + "<br>"
-        }
-        myDiv.innerHTML = allThings
+        getDestinations()
     </script>
 </body>
 
