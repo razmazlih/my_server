@@ -4,30 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item {
+            background-color: antiquewhite;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            flex: 0 0 250px;
+        }
+
+        h2 {
+            color: blue;
+        }
+
+        button {
+            padding: 2px 5px 2px 5px;
+            font-size: medium;
+            background-color: aliceblue;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 5px;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
+    <h1>My Destination Site</h1>
+    <div id="myAllDest"></div>
+    <div id="create">
+        <div>
+            <input type="text" id="newNameInput" placeholder="Name">
+            <input type="text" id="newScoreInput" placeholder="Score">
+            <input type="text" id="newDescriptionInput" placeholder="Description">
+            <input type="text" id="newImageInput" placeholder="Image">
+        </div>
+        <div>
+            <button onclick="addDestination()">Add New</button>
+        </div>
+    </div>
     <script>
-        let url = "http://localhost:3000"
+        let url = "http://localhost:3000/destinations/"
         let myDestinations
 
         async function getDestinations() {
-            const response = await axios.get(`${url}/destinations`)
+            const response = await axios.get(`${url}`)
             myDestinations = response.data
             displayDestinations()
         }
-        
+
         function displayDestinations() {
-            document.querySelector("body").innerHTML = `<div id="main"><div>`
+            document.getElementById("myAllDest").innerHTML = `<div id="main"></div>`
             let myDiv = document.getElementById("main")
             let allThings = ""
             for (let dest of myDestinations) {
-                allThings += dest["name"] + " " + dest["score"] + "<br>"
+                allThings += `<div class="item">
+                            <h2>${dest["name"]}</h2>
+                            <h3>${dest["score"]}</h3>
+                            <p>${dest["description"]}</p>
+                            <img src="${dest["image"]}" alt="${dest["name"]}" width="200px"><br>
+                            <button onclick="deleteDest(${dest["id"]})">Delete</button>
+                            </div>`
             }
-            myDiv.innerHTML = allThings
+            myDiv.innerHTML = `<div class="container">${allThings}</div`
+        }
+
+        function addDestination() {
+            let myNewDestInput = {
+                name: document.getElementById("newNameInput").value,
+                score: document.getElementById("newScoreInput").value,
+                description: document.getElementById("newDescriptionInput").value,
+                image: document.getElementById("newImageInput").value,
+            }
+
+            axios.post(`${url}`, myNewDestInput)
+        }
+
+        function deleteDest(idx) {
+            axios.delete(`${url}${idx}`)
+                .then(response => {
+                    console.log('Resource deleted:', response.data);
+                })
+                .catch(error => {
+                    console.error('Error deleting resource:', error);
+                });
         }
 
         getDestinations()

@@ -1,33 +1,46 @@
 {
-    "destinations": [{
-        "id": "1",
-        "name": "Barcelona",
-        "score": 8.5,
-        "description": "Barcelona is the capital of Catalunya.",
-        "image": "https://media.timeout.com/images/105992807/750/422/image.webp"
-    }, {
-        "id": "2",
-        "name": "Los Angeles",
-        "score": 7.9,
-        "description": "Los Angeles is in the west coast of the USA",
-        "image": "https://cdn.britannica.com/22/154122-050-B1D0A7FD/Skyline-Los-Angeles-California.jpg"
-    }, {
-        "id": "3",
-        "name": "New York",
-        "score": 8.2,
-        "description": "New York is the biggest city in the USA",
-        "image": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
-    }, {
-        "id": "4",
-        "name": "Tokyo",
-        "score": 8.7,
-        "description": "Tokyo is the bustling capital of Japan known for its modern architecture and vibrant culture.",
-        "image": "https://cdn.britannica.com/39/154139-050-BD340F6A/Shibuya-Tokyo.jpg"
-    }, {
-        "id": "5",
-        "name": "Paris",
-        "score": 8.9,
-        "description": "Paris, the capital of France, is renowned for its art, fashion, and the iconic Eiffel Tower.",
-        "image": "https://cdn.britannica.com/41/94441-050-AF27D5B7/Eiffel-Tower-Paris.jpg"
-    }]
+  "destinations": [
+    {
+      "id": "1",
+      "name": "Barcelona",
+      "score": 8.5,
+      "description": "Barcelona is the capital of Catalunya.",
+      "image": "https://media.timeout.com/images/105992807/750/422/image.webp"
+    },
+    {
+      "id": "2",
+      "name": "Los Angeles",
+      "score": 7.9,
+      "description": "Los Angeles is in the west coast of the USA",
+      "image": "https://cdn.britannica.com/22/154122-050-B1D0A7FD/Skyline-Los-Angeles-California.jpg"
+    },
+    {
+      "id": "3",
+      "name": "New York",
+      "score": 8.2,
+      "description": "New York is the biggest city in the USA",
+      "image": "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Tokyo",
+      "score": 8.7,
+      "description": "Tokyo is the bustling capital of Japan known for its modern architecture and vibrant culture.",
+      "image": "https://media.cntraveller.com/photos/6343df288d5d266e2e66f082/16:9/w_1920,c_limit/tokyoGettyImages-1031467664.jpeg"
+    },
+    {
+      "id": "5",
+      "name": "Paris",
+      "score": 8.9,
+      "description": "Paris, the capital of France, is renowned for its art, fashion, and the iconic Eiffel Tower.",
+      "image": "https://sa.visamiddleeast.com/dam/VCOM/regional/cemea/generic-cemea/travel-with-visa/destinations/paris/marquee-travel-paris-800x450.jpg"
+    },
+    {
+      "id": "8d93",
+      "name": "רז",
+      "score": "5",
+      "description": "אא",
+      "image": "אאא"
+    }
+  ]
 }
