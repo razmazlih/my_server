@@ -83,10 +83,10 @@
                             <h3>${dest["score"]}</h3>
                             <p>${dest["description"]}</p>
                             <img src="${dest["image"]}" alt="${dest["name"]}" width="200px"><br>
-                            <button onclick="deleteDest(${dest["id"]})">Delete</button>
+                            <button onclick="deleteDest('${dest["id"]}')">Delete</button>
                             </div>`
             }
-            myDiv.innerHTML = `<div class="container">${allThings}</div`
+            myDiv.innerHTML = `<div class="container">${allThings}</div>`
         }
 
         function addDestination() {
@@ -96,21 +96,14 @@
                 description: document.getElementById("newDescriptionInput").value,
                 image: document.getElementById("newImageInput").value,
             }
-
             axios.post(`${url}`, myNewDestInput)
         }
 
         function deleteDest(idx) {
             axios.delete(`${url}${idx}`)
-                .then(response => {
-                    console.log('Resource deleted:', response.data);
-                })
-                .catch(error => {
-                    console.error('Error deleting resource:', error);
-                });
         }
 
-        getDestinations()
+        getDestinations();
     </script>
 </body>
 
