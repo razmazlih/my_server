@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <script>
+        let url = "http://localhost:3000"
+        let myDestinations
+
+        async function getDestinations() {
+            const response = await axios.get(`${url}/destinations`)
+            myDestinations = response.data
+        }
+        getDestinations()
+
+        document.querySelector("body").innerHTML = `<div id="main"><div>`
+        let myDiv = document.getElementById("main")
+        let allThings
+        for (dest in myDestinations) {
+            allThings += dest["name"] + dest["score"] + "<br>"
+        }
+        myDiv.innerHTML = allThings
+    </script>
+</body>
+
+</html>
