@@ -134,6 +134,30 @@
             getDestinations()
         }
 
+        async function updateName(id) {
+            const newValue = document.getElementById("theUpdate").value;
+            await axios.patch(`${url}${id}`, { name: newValue });
+            getDestinations();
+        }
+
+        async function updateScore(id) {
+            const newValue = document.getElementById("theUpdate").value;
+            await axios.patch(`${url}${id}`, { score: newValue });
+            getDestinations();
+        }
+
+        async function updateDescription(id) {
+            const newValue = document.getElementById("theUpdate").value;
+            await axios.patch(`${url}${id}`, { description: newValue });
+            getDestinations();
+        }
+
+        async function updateImage(id) {
+            const newValue = document.getElementById("theUpdate").value;
+            await axios.patch(`${url}${id}`, { image: newValue });
+            getDestinations();
+        }
+
         getDestinations();
     </script>
 </body>
