@@ -121,10 +121,12 @@
                 image: document.getElementById("newImageInput").value,
             }
             axios.post(`${url}`, myNewDestInput)
+            getDestinations()
         }
 
         function deleteDest(idx) {
             axios.delete(`${url}${idx}`)
+            getDestinations()
         }
 
         getDestinations();
