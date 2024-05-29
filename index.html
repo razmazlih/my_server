@@ -105,7 +105,7 @@
                                 </div>
                                 <div>
                                     <p>Update</p>
-                                    <input id="theUpdate"><br>
+                                    <input id="theUpdate-${dest["id"]}"><br>
                                     <button onclick="updateName('${dest["id"]}')" class="small">Name</button>
                                     <button onclick="updateScore('${dest["id"]}')" class="small">Score</button>
                                     <button onclick="updateDescription('${dest["id"]}')" class="small">Description</button>
@@ -135,25 +135,25 @@
         }
 
         async function updateName(id) {
-            const newValue = document.getElementById("theUpdate").value;
+            const newValue = document.getElementById("theUpdate-" + id).value;
             await axios.patch(`${url}${id}`, { name: newValue });
             getDestinations();
         }
 
         async function updateScore(id) {
-            const newValue = document.getElementById("theUpdate").value;
+            const newValue = document.getElementById("theUpdate-" + id).value;
             await axios.patch(`${url}${id}`, { score: newValue });
             getDestinations();
         }
 
         async function updateDescription(id) {
-            const newValue = document.getElementById("theUpdate").value;
+            const newValue = document.getElementById("theUpdate-" + id).value;
             await axios.patch(`${url}${id}`, { description: newValue });
             getDestinations();
         }
 
         async function updateImage(id) {
-            const newValue = document.getElementById("theUpdate").value;
+            const newValue = document.getElementById("theUpdate-" + id).value;
             await axios.patch(`${url}${id}`, { image: newValue });
             getDestinations();
         }
