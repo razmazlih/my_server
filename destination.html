@@ -43,6 +43,19 @@
             margin-top: 10px;
             border-radius: 10px;
         }
+
+        p {
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+
+        img {
+            margin-top: 20px;
+        }
+
+        .small {
+            font-size: small;
+        }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -79,12 +92,23 @@
             let allThings = ""
             for (let dest of myDestinations) {
                 allThings += `<div class="item">
-                            <h2>${dest["name"]}</h2>
-                            <h3>${dest["score"]}</h3>
-                            <p>${dest["description"]}</p>
-                            <img src="${dest["image"]}" alt="${dest["name"]}" width="200px"><br>
-                            <button onclick="deleteDest('${dest["id"]}')">Delete</button>
-                            </div>`
+                                <div>
+                                <h2>${dest["name"]}</h2>
+                                <h3>${dest["score"]}</h3>
+                                <p>${dest["description"]}</p>
+                                <img src="${dest["image"]}" alt="${dest["name"]}" width="200px"><br>
+                                </div>
+                                <div>
+                                    <p>Update</p>
+                                    <input id="theUpdate"><br>
+                                    <button onclick="updateName('${dest["id"]}')" class="small">Name</button>
+                                    <button onclick="updateScore('${dest["id"]}')" class="small">Score</button>
+                                    <button onclick="updateDescription('${dest["id"]}')" class="small">Description</button>
+                                    <button onclick="updateImage('${dest["id"]}')" class="small">Image</button>
+                                </div>
+                                <button onclick="deleteDest('${dest["id"]}')">Delete</button>
+                            </div>
+                            `
             }
             myDiv.innerHTML = `<div class="container">${allThings}</div>`
         }
